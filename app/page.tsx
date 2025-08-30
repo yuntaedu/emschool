@@ -14,8 +14,8 @@ export default function Page() {
   const scaleParallax = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 20, mass: 0.3 });
 
-  const heroImage = "\standing.jpg";
-  const bookImage = "/paradigm-all.png";
+  const heroImage = "/standing.jpg";
+  const bookImage = "paradigm-all.png";
   const bookTitle = "이엠스쿨만의 커리큘럼 [Paradigm]";
   const bookDesc = " 교재 보기";
 
@@ -181,7 +181,7 @@ const Hero = React.forwardRef<HTMLDivElement, {
         <div className="md:col-span-2">
         <Floating>
           <h1 className="text-3xl leading-tight md:text-5xl">
-            <p><span className="text-2xl font-bold text-blue-400">왜</span> 서울 학생들은 성적이 좋을까?</p>
+            <p><span className="text-3xl font-bold text-blue-400">왜</span> 서울 학생들은 성적이 좋을까?</p>
           </h1>
             <div className="mt-4 max-w-xl text-base text-slate-300 md:text-lg mt-10 space-y-2">
               <p>서울 학생들이 앞서는 건, 특별히 머리가 좋아서가 아닙니다.</p>
@@ -304,8 +304,8 @@ function ValueProps() {
   ];
 
   return (
-    <section id="system" className="mx-auto max-w-6xl px-4">
-      <div className="text-center mb-12 mt-150">
+    <section id="system" className="mx-auto max-w-6xl px-4 mt-24 md:mt-96">
+      <div className="text-center mb-12">
         <FadeUp>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             이엠스쿨은 특별합니다
@@ -335,7 +335,7 @@ function ValueProps() {
 
 function SystemSection() {
   return (
-    <section  className="mx-auto mt-20 max-w-6xl px-4 mt-150">
+    <section  className="mx-auto mt-20 max-w-6xl px-4 mt-96">
         <FadeUp>
         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">성적이 오르는 4단계 관리 루틴</h2>
         <p className="mt-3 text-slate-300  text-lg md:text-xl mt-20 text-center">
@@ -450,26 +450,26 @@ function Tracks() {
       title: "Axiom (개념의 본질)",
       desc:
         "수학적 지식의 출발점이 되는 핵심 정의와 원리를 명확하게 제시합니다. 본질에 집중해 흔들리지 않는 기반을 다집니다.",
-      img: "/axiom.png",
+      img: "axiom.png",
       alt: "Axiom 교재",
     },
     {
       title: "Dissection (문제의 해부)",
       desc:
         "문제 속 의도와 논리를 해부하듯 분석합니다. 암기를 넘어 구조를 꿰뚫는 통찰로 어떤 유형도 논리적으로 해결합니다.",
-      img: "/dissection.png",
+      img: "dissection.png",
       alt: "Dissection 교재",
     },
     {
       title: "Iteration (완전한 숙달)",
       desc:
         "다양한 문제에 개념과 분석을 반복 적용해 지식을 체화합니다. 반복훈련을 통해 흔들리지 않는 실력으로 연결합니다.",
-      img: "/iteration.png",
+      img: "iteration.png",
       alt: "Iteration 교재",
     },
   ];
   return (
-    <section id="tracks" className="mx-auto mt-20 max-w-6xl px-4 mt-150 scroll-mt-24 md:scroll-mt-32">
+    <section id="tracks" className="mx-auto mt-20 max-w-6xl px-4 mt-96 scroll-mt-24 md:scroll-mt-32">
       <FadeUp>
         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">패러다임(Paradigm)</h2>
         <p className="mt-3 text-slate-300 text-center leading-relaxed mt-20 text-lg md:text-xl">
@@ -535,12 +535,12 @@ function FAQ() {
       a: "네, 이 &apos;Paradigm&apos; 커리큘럼은 기존의 반복 학습에 지쳐있거나, &apos;왜&apos;라는 질문에 답을 찾지 못해 어려움을 겪는 학생들을 위해 설계되었습니다. &apos;Dissection&apos; 단계에서 문제의 숨은 의도를 파악하고, &apos;Iteration&apos; 단계에서 배운 방식을 체화하는 훈련을 통해, 단편적인 지식이 아닌 스스로 생각하는 힘을 기르게 됩니다. 이 과정은 특히 중위권 학생들의 수학적 잠재력을 끌어올리는 데 매우 효과적입니다."
     },
     { 
-      q: "Q3. 교재는 어떻게 사용하나요?", 
+      q: "Q3. 교재는 어떤 걸 사용하나요?", 
       a: "이엠스쿨의 핵심 교재인 &apos;Paradigm&apos; 시리즈(Axiom, Dissection, Iteration)를 기반으로 학생의 수준과 목표에 맞춰 공통 교재 및 개별 맞춤 교재를 혼합하여 사용합니다. 특히, 학생 개인의 취약점을 보강하기 위한 오답 노트와 취약 단원 보강을 가장 중요하게 관리합니다."
     },
   ];
   return (
-    <section id="faq" className="mx-auto mt-20 max-w-6xl px-4 mt-100">
+    <section id="faq" className="mx-auto mt-20 max-w-6xl px-4 mt-96">
       <FadeUp>
         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">자주 묻는 질문</h2>
       </FadeUp>
