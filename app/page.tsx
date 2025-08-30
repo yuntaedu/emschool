@@ -15,7 +15,7 @@ export default function Page() {
   const scaleParallax = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 20, mass: 0.3 });
 
-  const heroImage = "/standing.jpg";
+  const heroImage = "standing.jpg";
   const bookImage = "paradigm-all.png";
   const bookTitle = "이엠스쿨만의 커리큘럼 [Paradigm]";
   const bookDesc = " 교재 보기";
@@ -612,7 +612,7 @@ function CTA() {
               >
                 <Image
                   alt="QR"
-                  src="/em-qr.jpg"
+                  src="em-qr.jpg"
                   fill
                   className="rounded-lg object-cover"
                 />
