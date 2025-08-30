@@ -262,15 +262,21 @@ const Hero = React.forwardRef<HTMLDivElement, {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative aspect-[3/5] w-full max-w-md mx-auto overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl"
           >
-            <motion.img
-              src={heroImage}
-              alt="프로필"
+            <motion.div
               initial={{ scale: 1.05, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: false, margin: "-40px" }}
               transition={{ duration: 0.8 }}
-              className="h-full w-full object-cover"
-            />
+              className="h-full w-full"
+            >
+              <Image
+                src={heroImage}
+                alt="프로필"
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
             <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-white/15 bg-slate-950/70 p-3 text-sm backdrop-blur">
               <div className="flex flex-col">
                 <p className="font-semibold">연세대학교(서울) 기계공학과 재학</p>
@@ -597,15 +603,20 @@ function CTA() {
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm">
             <p className="text-lg font-semibold text-slate-200">QR 코드</p>
             <div className="mt-4 flex items-center justify-center">
-              <motion.img
-                alt="QR"
-                className="h-40 w-40 rounded-lg border border-white/10"
-                src="/em-qr.jpg"
+              <motion.div
+                className="h-40 w-40 rounded-lg border border-white/10 relative"
                 initial={{ scale: 0.95, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: false, margin: "-40px" }}
                 transition={{ duration: 0.6 }}
-              />
+              >
+                <Image
+                  alt="QR"
+                  src="/em-qr.jpg"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </motion.div>
             </div>
             <p className="mt-3 text-center text-xs text-slate-400">스마트폰으로 스캔하여 문의 가능.</p>
           </div>
