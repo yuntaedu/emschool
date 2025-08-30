@@ -16,7 +16,7 @@ export default function Page() {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 20, mass: 0.3 });
 
   const heroImage = "/standing.jpg";
-  const bookImage = "/paradigm-all.png";
+  const bookImage = "paradigm-all.png";
   const bookTitle = "이엠스쿨만의 커리큘럼 [Paradigm]";
   const bookDesc = " 교재 보기";
 
@@ -236,11 +236,14 @@ const Hero = React.forwardRef<HTMLDivElement, {
               }}
               className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm cursor-pointer transition hover:brightness-110"
             >
-              <img
-                src={bookImage}
-                alt="Paradigm 교재"
-                className="aspect-[4/3] w-full h-auto object-cover"
-              />
+              <div className="aspect-[4/3] w-full h-auto relative">
+                <Image
+                  src={bookImage}
+                  alt="Paradigm 교재"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="border-t border-white/10 p-3">
                 <p className="text-sm font-semibold">{bookTitle ?? "교재 정보"}</p>
                 <p className="mt-1 text-xs text-slate-300">{bookDesc ?? "설명 내용을 여기에 입력하세요."}</p>
@@ -594,21 +597,15 @@ function CTA() {
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm">
             <p className="text-lg font-semibold text-slate-200">QR 코드</p>
             <div className="mt-4 flex items-center justify-center">
-              <motion.div
-                className="h-40 w-40 rounded-lg border border-white/10 relative"
+              <motion.img
+                alt="QR"
+                className="h-40 w-40 rounded-lg border border-white/10"
+                src="/em-qr.jpg"
                 initial={{ scale: 0.95, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: false, margin: "-40px" }}
                 transition={{ duration: 0.6 }}
-              >
-                <Image
-                  alt="QR"
-                  src="/em-qr.jpg"
-                  width={160}
-                  height={160}
-                  className="rounded-lg object-cover"
-                />
-              </motion.div>
+              />
             </div>
             <p className="mt-3 text-center text-xs text-slate-400">스마트폰으로 스캔하여 문의 가능.</p>
           </div>
