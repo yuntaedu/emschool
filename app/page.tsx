@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
+import Image from "next/image";
 
 // Next.js App Router용 랜딩 페이지 + 무빙 이펙트 강화 버전
 // 파일 경로 제안: app/page.tsx
@@ -15,7 +16,7 @@ export default function Page() {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 20, mass: 0.3 });
 
   const heroImage = "/standing.jpg";
-  const bookImage = "paradigm-all.png";
+  const bookImage = "/paradigm-all.png";
   const bookTitle = "이엠스쿨만의 커리큘럼 [Paradigm]";
   const bookDesc = " 교재 보기";
 
@@ -593,15 +594,21 @@ function CTA() {
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm">
             <p className="text-lg font-semibold text-slate-200">QR 코드</p>
             <div className="mt-4 flex items-center justify-center">
-              <motion.img
-                alt="QR"
-                className="h-40 w-40 rounded-lg border border-white/10"
-                src="/em-qr.jpg"
+              <motion.div
+                className="h-40 w-40 rounded-lg border border-white/10 relative"
                 initial={{ scale: 0.95, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: false, margin: "-40px" }}
                 transition={{ duration: 0.6 }}
-              />
+              >
+                <Image
+                  alt="QR"
+                  src="/em-qr.jpg"
+                  width={160}
+                  height={160}
+                  className="rounded-lg object-cover"
+                />
+              </motion.div>
             </div>
             <p className="mt-3 text-center text-xs text-slate-400">스마트폰으로 스캔하여 문의 가능.</p>
           </div>
