@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 
 // Next.js App Router용 랜딩 페이지 + 무빙 이펙트 강화 버전
 // 파일 경로 제안: app/page.tsx
@@ -42,7 +42,7 @@ export default function Page() {
   );
 }
 
-function ScrollProgress({ progress }: { progress: any }) {
+function ScrollProgress({ progress }: { progress: MotionValue<number> }) {
   return (
     <motion.div
       style={{ scaleX: progress }}
@@ -168,9 +168,9 @@ const Hero = React.forwardRef<HTMLDivElement, {
   bookImage: string;
   bookTitle?: string;
   bookDesc?: string;
-  yParallax: any;
-  scaleParallax: any;
-}>(({ heroImage, bookImage, bookTitle, bookDesc, yParallax, scaleParallax }, ref) => {
+  yParallax: MotionValue<number>;
+  scaleParallax: MotionValue<number>;
+}>(({ heroImage, bookImage, bookTitle, bookDesc }, ref) => {
   return (
     <section ref={ref} className="relative mx-auto mt-6 max-w-6xl px-4 md:mt-12">
       {/* 배경 글로우 */}
@@ -473,7 +473,7 @@ function Tracks() {
       <FadeUp>
         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">패러다임(Paradigm)</h2>
         <p className="mt-3 text-slate-300 text-center leading-relaxed mt-20 text-lg md:text-xl">
-          이엠스쿨의 새로운 수학 커리큘럼 'Paradigm'은 기존의 학습 방식을 뛰어넘는 사고의 전환을 제시합니다.
+          이엠스쿨의 새로운 수학 커리큘럼 &apos;Paradigm&apos;은 기존의 학습 방식을 뛰어넘는 사고의 전환을 제시합니다.
           <br />학생의 수학 실력과 수학을 대하는 태도가 근본적으로 변화될 것입니다.
         </p>
         <p className="mt-3 text-slate-300 text-center leading-relaxed mt-10 text-lg md:text-xl">
@@ -528,15 +528,15 @@ function FAQ() {
   const faqs = [
     { 
       q: "Q1. 다른 학원이나 과외와 무엇이 다른가요? 특별한 점이 있나요?", 
-      a: "이엠스쿨의 'Paradigm' 커리큘럼은 단순히 지식을 전달하는 강의가 아닌, 학생의 수학 학습 전체를 설계하고 관리하는 시스템입니다. 문제 풀이 양을 늘리는 방식에서 벗어나 Axiom[개념의 본질] - Dissection[문제의 해부] - Iteration[완전한 숙달]으로 이어지는 3단계 로드맵을 통해 수학적 사고력 자체를 완성합니다. 학생의 성장을 위한 명확한 목표 설정, 체계적인 루틴, 그리고 정기적인 리포트로 학습의 성공 구조를 만들어 나가는 것이 가장 특별한 점입니다."
+      a: "이엠스쿨의 &apos;Paradigm&apos; 커리큘럼은 단순히 지식을 전달하는 강의가 아닌, 학생의 수학 학습 전체를 설계하고 관리하는 시스템입니다. 문제 풀이 양을 늘리는 방식에서 벗어나 Axiom[개념의 본질] - Dissection[문제의 해부] - Iteration[완전한 숙달]으로 이어지는 3단계 로드맵을 통해 수학적 사고력 자체를 완성합니다. 학생의 성장을 위한 명확한 목표 설정, 체계적인 루틴, 그리고 정기적인 리포트로 학습의 성공 구조를 만들어 나가는 것이 가장 특별한 점입니다."
     },
     { 
       q: "Q2. 중위권 학생인데, 우리 아이도 이 커리큘럼으로 효과를 볼 수 있을까요?", 
-      a: "네, 이 'Paradigm' 커리큘럼은 기존의 반복 학습에 지쳐있거나, '왜'라는 질문에 답을 찾지 못해 어려움을 겪는 학생들을 위해 설계되었습니다. 'Dissection' 단계에서 문제의 숨은 의도를 파악하고, 'Iteration' 단계에서 배운 방식을 체화하는 훈련을 통해, 단편적인 지식이 아닌 스스로 생각하는 힘을 기르게 됩니다. 이 과정은 특히 중위권 학생들의 수학적 잠재력을 끌어올리는 데 매우 효과적입니다."
+      a: "네, 이 &apos;Paradigm&apos; 커리큘럼은 기존의 반복 학습에 지쳐있거나, &apos;왜&apos;라는 질문에 답을 찾지 못해 어려움을 겪는 학생들을 위해 설계되었습니다. &apos;Dissection&apos; 단계에서 문제의 숨은 의도를 파악하고, &apos;Iteration&apos; 단계에서 배운 방식을 체화하는 훈련을 통해, 단편적인 지식이 아닌 스스로 생각하는 힘을 기르게 됩니다. 이 과정은 특히 중위권 학생들의 수학적 잠재력을 끌어올리는 데 매우 효과적입니다."
     },
     { 
       q: "Q3. 교재는 어떻게 사용하나요?", 
-      a: "이엠스쿨의 핵심 교재인 'Paradigm' 시리즈(Axiom, Dissection, Iteration)를 기반으로 학생의 수준과 목표에 맞춰 공통 교재 및 개별 맞춤 교재를 혼합하여 사용합니다. 특히, 학생 개인의 취약점을 보강하기 위한 오답 노트와 취약 단원 보강을 가장 중요하게 관리합니다."
+      a: "이엠스쿨의 핵심 교재인 &apos;Paradigm&apos; 시리즈(Axiom, Dissection, Iteration)를 기반으로 학생의 수준과 목표에 맞춰 공통 교재 및 개별 맞춤 교재를 혼합하여 사용합니다. 특히, 학생 개인의 취약점을 보강하기 위한 오답 노트와 취약 단원 보강을 가장 중요하게 관리합니다."
     },
   ];
   return (
@@ -618,7 +618,7 @@ function Footer() {
       <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-3">
         <div>
           <p className="text-lg font-semibold text-slate-200">이엠스쿨 수학 학원</p>
-          <p className="mt-2 leading-relaxed">철저한 학습관리로 지역 학생들의 인서울을 돕습니다. 'Paradigm' 커리큘럼으로 개념·해부·숙달의 3단계 학습을 제공합니다.</p>
+          <p className="mt-2 leading-relaxed">철저한 학습관리로 지역 학생들의 인서울을 돕습니다. &apos;Paradigm&apos; 커리큘럼으로 개념·해부·숙달의 3단계 학습을 제공합니다.</p>
         </div>
         <div>
           <p className="text-lg font-semibold text-slate-200">빠른 이동</p>
@@ -658,7 +658,7 @@ function Footer() {
           <ul className="mt-2 space-y-1">
             <li>전화: <a href="tel:010-6694-0888" className="underline">010-6694-0888</a></li>
             <li>카카오톡: <a href="https://open.kakao.com/o/scfbu9Oh" className="underline" target="_blank" rel="noreferrer">오픈채팅 바로가기</a></li>
-            <li>QR: 상단 '상담 신청' 섹션의 QR 이미지를 스캔하세요.</li>
+            <li>QR: 상단 &apos;상담 신청&apos; 섹션의 QR 이미지를 스캔하세요.</li>
           </ul>
         </div>
       </div>
